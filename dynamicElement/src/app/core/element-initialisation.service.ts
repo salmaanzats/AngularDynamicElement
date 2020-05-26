@@ -20,12 +20,12 @@ export class ElementInitialisationService {
     return new TextboxElement({
       id: fields.id,
       key: fields.key,
-      label: fields.templateOptions.label,
+      label: fields.label,
       required: fields.isRequired,
       order: fields.displayOrder,
-      placeholder: fields.templateOptions.placeholder,
+      placeholder: fields.placeholder,
       value: fields.value,
-      toolTip: fields.templateOptions.toolTip
+      toolTip: fields.toolTip
     });
   }
 
@@ -33,7 +33,7 @@ export class ElementInitialisationService {
     return new EmailElement({
       id: fields.id,
       key: fields.key,
-      label: fields.templateOptions.label,
+      label: fields.label,
       required: fields.isRequired,
       order: fields.displayOrder,
       value: fields.value
@@ -51,12 +51,12 @@ export class ElementInitialisationService {
     return new CheckboxElement({
       id: fields.id,
       key: fields.key,
-      label: fields.templateOptions.label,
+      label: fields.label,
       required: fields.isRequired,
       order: fields.displayOrder,
       type: 'checkbox',
       value: fields.value,
-      toolTip: fields.templateOptions.toolTip
+      toolTip: fields.toolTip
     });
   }
 
@@ -67,13 +67,13 @@ export class ElementInitialisationService {
     return new CheckboxGroupElement({
       id: fields.id,
       key: fields.key,
-      label: fields.templateOptions.label,
+      label: fields.label,
       required: fields.isRequired,
       order: fields.displayOrder,
       type: 'checkbox',
-      multipleValues: options == undefined ? fields.templateOptions.options : options,
+      multipleValues: options == undefined ? fields.options : options,
       value: fields.value,
-      toolTip: fields.templateOptions.toolTip
+      toolTip: fields.toolTip
     });
   }
 
@@ -82,13 +82,13 @@ export class ElementInitialisationService {
     return new RadioGroupElement({
       id: fields.id,
       key: fields.key,
-      label: fields.templateOptions.label,
+      label: fields.label,
       required: fields.isRequired,
       order: fields.displayOrder,
       type: 'radio',
-      multipleValues: fields.templateOptions.options,
+      multipleValues: fields.options,
       value: fields.value,
-      toolTip: fields.templateOptions.toolTip
+      toolTip: fields.toolTip
     });
   }
 
@@ -98,12 +98,12 @@ export class ElementInitialisationService {
     return new DropdownElement({
       id: fields.id,
       key: fields.key,
-      label: fields.templateOptions.label,
+      label: fields.label,
       required: fields.isRequired,
       order: fields.displayOrder,
-      options: fields.templateOptions.options,
+      options: fields.options,
       value: fields.value,
-      toolTip: fields.templateOptions.toolTip
+      toolTip: fields.toolTip
     });
   }
 
@@ -111,12 +111,12 @@ export class ElementInitialisationService {
     return new TextAreaElement({
       id: fields.id,
       key: fields.key,
-      label: fields.templateOptions.label,
+      label: fields.label,
       required: fields.isRequired,
       order: fields.displayOrder,
       value: fields.value,
-      placeholder: fields.templateOptions.placeholder,
-      toolTip: fields.templateOptions.toolTip
+      placeholder: fields.placeholder,
+      toolTip: fields.toolTip
     });
   }
 
@@ -124,12 +124,12 @@ export class ElementInitialisationService {
     return new CalendarElement({
       id: fields.id,
       key: fields.key,
-      label: fields.templateOptions.label,
+      label: fields.label,
       required: fields.isRequired,
       order: fields.displayOrder,
       value: fields.value == undefined ? null : fields.value == "" ? null : new Date(fields.value),
       type: 'Date',
-      toolTip: fields.templateOptions.toolTip
+      toolTip: fields.toolTip
     });
   }
 
@@ -138,12 +138,12 @@ export class ElementInitialisationService {
     return new FileElement({
       id: fields.id,
       key: fields.key,
-      label: fields.templateOptions.label,
+      label: fields.label,
       required: fields.isRequired,
       order: fields.displayOrder,
       value: fields.value,
       type: 'File',
-      toolTip: fields.templateOptions.toolTip
+      toolTip: fields.toolTip
     });
   }
 
@@ -151,7 +151,7 @@ export class ElementInitialisationService {
     return new ProfileImageElement({
       id: fields.id,
       key: fields.key,
-      label: fields.templateOptions.label,
+      label: fields.label,
       required: fields.isRequired,
       order: fields.displayOrder,
       value: fields.value,

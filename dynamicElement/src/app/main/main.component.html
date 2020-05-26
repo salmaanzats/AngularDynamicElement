@@ -1,0 +1,6 @@
+<form [formGroup]=renderModel?.form>
+    <div *ngFor="let element of renderModel?.elements" class="form-row">
+        <app-core-render (onFileUploads)="fileUpload($event)" (onImageUploads)="imageUpload($event)" [element]="element"
+            [form]="renderModel?.form" [isFormSubmitted]="renderModel.isFormSubmitted"></app-core-render>
+    </div>
+</form>

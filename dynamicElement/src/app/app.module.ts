@@ -4,17 +4,26 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreRenderComponent } from './core-render/core-render.component';
+import { ElementInitialisationService } from './core/element-initialisation.service';
+import { ElementControlService } from './core/element-control.service';
+import { MainComponent } from './main/main.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BsDatepickerModule } from 'node_modules/ngx-bootstrap/datepicker';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CoreRenderComponent
+    CoreRenderComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BsDatepickerModule.forRoot(),
   ],
-  providers: [],
+  providers: [ElementInitialisationService, ElementControlService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

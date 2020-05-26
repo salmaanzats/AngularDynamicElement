@@ -25,7 +25,6 @@ export class CoreRenderComponent implements OnInit {
   @Input() isFormSubmitted: boolean;
   @Output() onFileUploads: EventEmitter<any> = new EventEmitter<any>();
   @Output() onImageUploads: EventEmitter<any> = new EventEmitter<any>();
-  @Output() onImageRemoval: EventEmitter<any> = new EventEmitter<any>();
 
   ngOnInit() {
     if (this.element.controlType == 'checkboxgroup') {
@@ -91,14 +90,4 @@ export class CoreRenderComponent implements OnInit {
       this.isFormSubmitted = true;
     }
   }
-
-  clearProfileImage() {
-    this.onImageRemoval.emit();
-    this.imageUploadRef.nativeElement.value = '';
-    this.imageSrc = './assets/img/user.svg';
-    this.form.patchValue({
-      profileImage: ''
-    });
-  }
-
 }
