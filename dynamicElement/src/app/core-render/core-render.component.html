@@ -1,0 +1,84 @@
+<div [formGroup]="form" [ngClass]="!isValid && isFormSubmitted == true ? 'is-error':''">
+
+    <div [ngSwitch]="element.controlType" class="custome-ele-wrapper">
+      <label *ngIf="element.controlType !='checkbox' " [attr.for]="element.key">{{element.label}}</label>
+  
+      <span *ngIf="element.toolTip != ''" data-toggle="tooltip" title="{{element.toolTip}}">
+          <i class="fas fa-question-circle m-l-5"></i>
+      </span>
+  
+      <small class="pull-right req" *ngIf="!element.required">
+        <i class="fas fa-info-circle"></i> Optional</small>
+  
+      <input *ngSwitchCase="'textbox'" class="form-control input-md" placeholder="{{element.placeholder}}"
+        [formControlName]="element.key" [id]="element.key" [type]="element.type" autocomplete="off">
+  
+      <input *ngSwitchCase="'calendar'" id="element.key" class="form-control" [formControlName]="element.key"
+        autocomplete="off" bsDatepicker>
+  
+  
+      <div class="profile-upload" *ngSwitchCase="'profileImage'">
+        <div class="pic">
+          <img class="profile-pic" [src]="imageSrc">
+        </div>
+        <div class="content flex">
+          <div id="imageContainer" style="display:block;"></div>
+          <label for="selectbasic">Profile Picture</label>
+          <p>Important: Please upload a photo that clearly shows your face. This will be used in a
+            professional context.</p>
+          <div class="flex">
+            <label class="fileContainer upload-pic-btn m-r-5">
+              <i class="fas fa-upload"></i> Upload Picture
+              <input #imageUploadRef [formControlName]="element.key" [type]="element" id="element.key" accept="image/*" (change)="imageUpload($event)" />
+            </label>
+            <button *ngIf="imageSrc != './assets/img/user.svg'" class="btn btn-default" id="btnclearProfileImage" (click)="clearProfileImage()">Remove</button>
+          </div>
+        </div>
+      </div>
+  
+      <div *ngSwitchCase="'file'" class="file-uploder">
+        <label class="fileContainer">
+          <img src="./assets/img/upload.svg" alt=""> {{documentName}}
+          <input class="form-control" [type]="element" id="element.key" accept="*" (change)="fileUpload($event)">
+        </label>
+      </div>
+  
+      <textarea *ngSwitchCase="'textarea'" [id]="element.placeholder" class="form-control" autocomplete="off" rows="5"
+        cols="50" placeholder="{{element.placeholder}}" [formControlName]="element.key">{{element.value}}</textarea>
+  
+      <select *ngSwitchCase="'dropdown'" class="form-control" [id]="element.key" autocomplete="off" [formControlName]="element.key">
+        <option [selected]="element.value == 0 ? true : null" [disabled]="element.required">Select {{element.label}} </option>
+        <option *ngFor="let opt of element.options" [value]="opt.value" [selected]="element.value == opt.value ? true : null">{{opt.text}}</option>
+      </select>
+  
+      <div class="check" *ngSwitchCase="'checkbox'">
+        <input (change)="element.value = $event.target.checked" [(ngModel)]="element.value" [formControlName]="element.key" (change)="isRequired($event, element.required)"
+          [id]="element.key" [type]="element.type" [checked]="element.value ? true:false">
+        <label [attr.for]="element.key">{{element.label}}</label>
+      </div>
+  
+      <div class="check checkbox-group" *ngSwitchCase="'checkboxgroup'">
+        <div *ngFor="let opt of element.multipleValues">
+          <input [id]="element.key + opt.value" [type]="element.type" [(ngModel)]="element.value" (change)="element.value = this.checkboxValues($event,opt.value)"
+            [formControlName]="element.key" [name]="element.key" [checked]="opt.status ? true:false">
+          <label [attr.for]="element.key + opt.value">{{opt.text}}</label>
+        </div>
+      </div>
+  
+      <div *ngSwitchCase="'radiogroup'">
+        <div class="radiogroup" *ngFor="let opt of element.multipleValues">
+          <input [id]="element.key + opt.value" [type]="element.type" [name]="element.key" [value]="opt.text" [checked]="element.value == opt.text ? true : false"
+            [formControlName]="element.key">
+          <label [attr.for]="element.key + opt.value">{{opt.text}}</label>
+        </div>
+      </div>
+  
+      <input *ngSwitchCase="'email'" class="form-control input-md" [formControlName]="element.key"
+        [id]="element.key" [type]="element" autocomplete="off">
+    </div>
+  
+    <div *ngIf="!isValid && isFormSubmitted == true" class="error-msg animated shake">{{element.label}} is required</div>
+    <div *ngIf="isEmailValid && isFormSubmitted == true" class="error-msg animated shake">{{element.label}} is not valid</div>
+  </div>
+  
+  
