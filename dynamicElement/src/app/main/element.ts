@@ -4,7 +4,7 @@ export class ElementModel {
     id: number;
     key: string;
     label: string;
-    required: boolean
+    isRequired: boolean
     order: number;
     placeholder: string;
     value: string;

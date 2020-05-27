@@ -23,13 +23,10 @@
         </div>
         <div class="content flex">
           <div id="imageContainer" style="display:block;"></div>
-          <label for="selectbasic">Profile Picture</label>
-          <p>Important: Please upload a photo that clearly shows your face. This will be used in a
-            professional context.</p>
           <div class="flex">
             <label class="fileContainer upload-pic-btn m-r-5">
               <i class="fas fa-upload"></i> Upload Picture
-              <input #imageUploadRef [formControlName]="element.key" [type]="element" id="element.key" accept="image/*" (change)="imageUpload($event)" />
+              <input #imageUploadRef [formControlName]="element.key" type="file" id="element.key" accept="image/*" (change)="imageUpload($event)" />
             </label>
           </div>
         </div>
@@ -38,7 +35,7 @@
       <div *ngSwitchCase="'file'" class="file-uploder">
         <label class="fileContainer">
           <img src="./assets/image/upload.svg" alt=""> {{documentName}}
-          <input class="form-control" [type]="element" id="element.key" accept="*" (change)="fileUpload($event)">
+          <input class="form-control" type="file" id="element.key" accept="*" (change)="fileUpload($event)">
         </label>
       </div>
   

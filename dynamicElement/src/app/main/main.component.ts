@@ -24,10 +24,11 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.elements = [
-      { id: 1, key: "textBox", label: "TextBox", required: true, order: 1, placeholder: "TextBox", value: "", type: HTMLElements.text, toolTip: "" },
-      { id: 2, key: "textArea", label: "TextArea", required: false, order: 2, placeholder: "TextArea", value: "", type: HTMLElements.textarea, toolTip: "" },
-      { id: 3, key: "calendar", label: "Calendar", required: false, order: 3, placeholder: "", value: "", type: HTMLElements.calendar, toolTip: "" },
-      { id: 4, key: "file", label: "File", required: false, order: 4, placeholder: "", value: "", type: HTMLElements.file, toolTip: "" }
+      { id: 1, key: "textBox", label: "TextBox", isRequired: true, order: 1, placeholder: "TextBox", value: "", type: HTMLElements.text, toolTip: "" },
+      { id: 2, key: "textArea", label: "TextArea", isRequired: false, order: 2, placeholder: "TextArea", value: "", type: HTMLElements.textarea, toolTip: "" },
+      { id: 3, key: "calendar", label: "Calendar", isRequired: false, order: 3, placeholder: "", value: "", type: HTMLElements.calendar, toolTip: "" },
+      { id: 4, key: "file", label: "File", isRequired: false, order: 5, placeholder: "", value: "", type: HTMLElements.file, toolTip: "" },
+      { id: 5, key: "profileImage", label: "ProfileImage", isRequired: false, order: 4, placeholder: "", value: "", type: HTMLElements.profileImage, toolTip: "" }
     ];
     this.render();
   }
