@@ -1,6 +1,6 @@
 export enum HTMLElements {
     text = "text",
-    address = "address",
+    textarea = "textarea",
     checkbox = "checkBox",
     checkboxGroup = "checkboxGroup",
     radio = "radio",

@@ -24,7 +24,10 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.elements = [
-      { id: 1, key: "ss", label: "Name", required: false, order: 1, placeholder: "enter name", value: "", type: HTMLElements.text, toolTip: "" }
+      { id: 1, key: "textBox", label: "TextBox", required: true, order: 1, placeholder: "TextBox", value: "", type: HTMLElements.text, toolTip: "" },
+      { id: 2, key: "textArea", label: "TextArea", required: false, order: 2, placeholder: "TextArea", value: "", type: HTMLElements.textarea, toolTip: "" },
+      { id: 3, key: "calendar", label: "Calendar", required: false, order: 3, placeholder: "", value: "", type: HTMLElements.calendar, toolTip: "" },
+      { id: 4, key: "file", label: "File", required: false, order: 4, placeholder: "", value: "", type: HTMLElements.file, toolTip: "" }
     ];
     this.render();
   }
@@ -61,7 +64,7 @@ export class MainComponent implements OnInit {
       case HTMLElements.select:
         this.fields.push(this.initalizeElement.dropdownElement(fields));
         break;
-      case HTMLElements.address:
+      case HTMLElements.textarea:
         this.fields.push(this.initalizeElement.textareaElement(fields));
         break;
       case HTMLElements.calendar:
